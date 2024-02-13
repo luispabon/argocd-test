@@ -28,11 +28,11 @@ spec:
         repoURL: https://github.com/luispabon/argocd-test.git
         revision: HEAD
         directories:
-          - path: gitops/localdev/
+          - path: gitops/localdev/*
 
   template:
     metadata:
-      name: '{{.cluster}}-apps'
+      name: '{{.path.basename}}'
     spec:
       project: argocd-apps
       source:

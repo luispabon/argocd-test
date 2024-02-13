@@ -54,8 +54,7 @@ start:
 	$(MK) start \
 		--nodes=$(KUBE_NODES) \
 		--cpus=$(MK_CPUS) \
-		--memory=$(MK_MEMORY) \
-		--driver=kvm2
+		--memory=$(MK_MEMORY)
 
 enable-addons:
 	$(MK) addons enable metrics-server
