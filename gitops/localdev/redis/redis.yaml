@@ -615,7 +615,7 @@ metadata:
     app.kubernetes.io/instance: redis
     app.kubernetes.io/managed-by: Helm
   annotations:
-    
+
 spec:
   type: ClusterIP
   clusterIP: None
@@ -742,14 +742,14 @@ spec:
         prometheus.io/port: "9121"
         prometheus.io/scrape: "true"
     spec:
-      
+
       securityContext:
         fsGroup: 1001
       automountServiceAccountToken: true
       serviceAccountName: redis
       affinity:
         podAffinity:
-          
+
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
             - podAffinityTerm:
@@ -761,12 +761,11 @@ spec:
                 topologyKey: kubernetes.io/hostname
               weight: 1
         nodeAffinity:
-          
+
       terminationGracePeriodSeconds: 30
       containers:
         - name: redis
           image: docker.io/bitnami/redis:7.0.12-debian-11-r0
-          imagePullPolicy: "IfNotPresent"
           lifecycle:
             preStop:
               exec:
