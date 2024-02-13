@@ -92,6 +92,7 @@ dashboard:
 	$(MK) dashboard
 
 argo-install:
+	helm repo add argo https://argoproj.github.io/argo-helm
 	helm upgrade --install argo-cd argo/argo-cd --version 5.55.0
 
 argo-password:
@@ -100,7 +101,8 @@ argo-password:
 
 argo-tunnel:
 	@echo "Open https://localhost:8080"
-	$(KUBECTL) port-forward service/argo-cd-argocd-server -n default 8080:443
+	$(KUBECTL) port-forward service/argo-cd-argocd-server -n default 8080:443 --address 0.0.0.0
+
 #########################################################
 #                    Binary installs                    #
 #########################################################

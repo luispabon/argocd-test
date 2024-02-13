@@ -615,6 +615,7 @@ metadata:
     app.kubernetes.io/instance: redis
     app.kubernetes.io/managed-by: Helm
   annotations:
+    foo: bar
 
 spec:
   type: ClusterIP
